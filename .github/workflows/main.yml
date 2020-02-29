@@ -1,0 +1,28 @@
+name: CI
+
+on: [push]
+
+jobs:
+  sim:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run in VM
+        uses: actions/checkout@v1
+      - name: Run cmds in VM 
+        run: |
+          uname -a
+          pwd
+          ls
+          gcc --version
+  arm:
+    runs-on: ubuntu-latest
+    container: liuguo09/nuttx-test:18.04
+    steps:
+      - name: Run in container
+        uses: actions/checkout@v1
+      - name: Run cmds in container
+        run: |
+          uname -a
+          pwd
+          ls
+          gcc --version
