@@ -16,12 +16,13 @@ jobs:
           gcc --version
   arm:
     runs-on: ubuntu-latest
-    container: liuguo09/nuttx-test:18.04
+#    container: liuguo09/nuttx-test:18.04
     steps:
       - name: Run in container
         uses: actions/checkout@v1
       - name: Run cmds in container
         run: |
+          docker run -t -i liuguo09/nuttx-test:18.04 /bin/bash
           uname -a
           pwd
           ls
